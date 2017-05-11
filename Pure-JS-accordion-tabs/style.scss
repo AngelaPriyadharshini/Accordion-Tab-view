@@ -1,0 +1,127 @@
+$h2-color:#4c4c4c;
+$bg-color:#efefef;
+$btn-checked-bg:linear-gradient(#FF934E,#EE5A05);
+$button-bg-color:linear-gradient(#ffffff,#ececec);
+$default-font:'Roboto', sans-serif;
+$header-bg:linear-gradient(#7c7c7c,#4d4d4d);
+$white:#ffffff;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: $bg-color;
+}
+.main-heading{
+    color: $h2-color;
+    text-align: center;
+}
+section{
+    margin: 10px;
+}
+.main-heading:before{
+    content: 'Accordion component';   
+    font-family: $default-font;
+    color: $white;
+    font-weight: 300;
+}
+header{
+    background-image: $header-bg;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    li{
+        display: block;
+    }
+}
+
+#container{
+    label{
+        display: block;
+        background-image:$button-bg-color;
+        cursor: pointer;
+        padding: 10px 16px;
+        font-family: $default-font;
+        border: 1px solid #cecece;  
+        @include border-radius(2px);
+    }
+}
+
+#container{ 
+    input:checked+label{
+        background: $btn-checked-bg;
+    }
+}
+
+#container {
+    input[type='radio']{
+    display: none;
+    }
+}
+#container {
+        input[type='radio']:checked + p{
+            display:block;
+        }
+    }
+
+#container{
+    .details{
+        display: none;
+    }
+}
+
+#container {
+        input[type='radio']:checked+label + p{
+        display: block;
+    }
+}
+
+p{
+    padding: 10px 0;
+    margin: 0 10px;
+}
+
+h2{
+    padding: 10px 0;
+}
+
+@media screen and (min-width:768px){
+    
+   .main-heading:before{
+       content: 'Tabs'; 
+    } 
+    
+    #container{
+        float : left;
+        width : 100%;
+    }
+        
+    #container {
+    label{
+        float: left;
+        }
+    }
+    
+    #container{
+        li{
+            p{
+                float: right;
+                width: 100%;
+                margin : 50px 0 0 -100%;
+            }
+        }
+    }
+}
